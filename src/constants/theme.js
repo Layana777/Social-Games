@@ -6,7 +6,7 @@ export const lightTheme = {
   isRTL: true,
   colors: {
     ...MD3LightTheme.colors,
-    primary: "#7165e2",
+    primary: "#FFEDA8",
     primaryContainer: "#e8e6ff",
     secondary: "#03dac6",
     secondaryContainer: "#03dac6",
@@ -29,7 +29,7 @@ export const darkTheme = {
   isRTL: true,
   colors: {
     ...MD3DarkTheme.colors,
-    primary: "#7165e2",
+    primary: "#FFEDA8",
     primaryContainer: "#5a4dd4",
     secondary: "#03dac6",
     secondaryContainer: "#03dac6",
