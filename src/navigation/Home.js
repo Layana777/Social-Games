@@ -4,21 +4,25 @@ import { useTheme, Text } from "react-native-paper";
 import Header from "../components/common/Header";
 import SearchBar from "../components/common/SearchBar";
 import FilterDropdown from "../components/common/FilterDropdown";
-import GameCard from "../components/common/GameCard";
+import GameCard from "../components/common/card/GameCard";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
   const theme = useTheme();
+  const navigation = useNavigation();
 
   const dummyGames = [
     {
       id: 1,
-      title: "الطيور والحشرات",
+      title: " برا السالفة",
       subtitle: "قصص لـ 20 دقيقة",
       duration: "20 قصة | 20 دقيقة",
       image: {
         uri: "https://images.unsplash.com/photo-1444927714506-8492d94b5ba0?w=400&h=300&fit=crop",
       },
       type: "birds",
+      navigation: "Game",
+    
     },
     {
       id: 2,
@@ -65,6 +69,7 @@ const Home = () => {
   ];
 
   const handleGamePress = (game) => {
+    navigation.navigate("Game");
     console.log("Game pressed:", game.title);
   };
 

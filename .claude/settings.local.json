@@ -1,8 +1,9 @@
 {
-  "outputStyle": "Learning",
   "permissions": {
     "allow": [
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Read(//c/Users/layan/OneDrive/الصور/لقطات الشاشة/**)"
     ]
-  }
+  },
+  "outputStyle": "Learning"
 }

@@ -1,5 +1,35 @@
-import { createContext } from 'react';
+import { createContext, use, useContext, useState } from "react";
 
 export const BaraAlSalfaContext = createContext();
 
-export default BaraAlSalfaContext;
+export const BaraAlSalfaProvider = ({ children }) => {
+  const [players, setPlayers] = useState([]);
+  const [currntPage, setCurrntPage] = useState("landing");
+  const [selectedTopic, setSelectedTopic] = useState("");
+  const [outPlayer, setOutPlayer] = useState(0);
+
+  const value = {
+    players,
+    setPlayers,
+    currntPage,
+    setCurrntPage,
+    selectedTopic,
+    setSelectedTopic,
+    outPlayer,
+    setOutPlayer,
+  };
+
+  return (
+    <BaraAlSalfaContext.Provider value={value}>
+      {children}
+    </BaraAlSalfaContext.Provider>
+  );
+};
+
+export const useBaraAlSalfa = () => {
+  const context = useContext(BaraAlSalfaContext);
+  if (!context) {
+    throw new Error("useBaraAlSalfa must be used within a BaraAlSalfaProvider");
+  }
+  return context;
+};
