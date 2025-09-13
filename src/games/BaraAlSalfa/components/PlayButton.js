@@ -1,7 +1,13 @@
-import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import React from "react";
+import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 
-const PlayButton = ({ onPress, disabled = false, text = "PLAY", style, size = "medium" }) => {
+const PlayButton = ({
+  onPress,
+  disabled = false,
+  text = "ابدأ العب",
+  style,
+  size = "medium",
+}) => {
   return (
     <TouchableOpacity
       style={[styles.button, style, disabled && styles.buttonDisabled]}
@@ -9,9 +15,26 @@ const PlayButton = ({ onPress, disabled = false, text = "PLAY", style, size = "m
       disabled={disabled}
       activeOpacity={0.8}
     >
-      <View style={[styles.pixelBorder, size === "small" && styles.pixelBorderSmall]}>
-        <View style={[styles.innerButton, size === "small" && styles.innerButtonSmall]}>
-          <Text style={[styles.buttonText, size === "small" && styles.buttonTextSmall]}>{text}</Text>
+      <View
+        style={[
+          styles.pixelBorder,
+          size === "small" && styles.pixelBorderSmall,
+        ]}
+      >
+        <View
+          style={[
+            styles.innerButton,
+            size === "small" && styles.innerButtonSmall,
+          ]}
+        >
+          <Text
+            style={[
+              styles.buttonText,
+              size === "small" && styles.buttonTextSmall,
+            ]}
+          >
+            {text}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

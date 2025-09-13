@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   I18nManager,
+  ScrollView,
 } from "react-native";
 import PlayButton from "../components/PlayButton";
 import { useState } from "react";
@@ -66,7 +67,7 @@ const Players = () => {
           </View>
 
           {/* Players List */}
-          <View style={styles.playersListContainer}>
+          <ScrollView style={styles.playersListContainer}>
             {players.map((item, idx) => (
               <View key={idx} style={styles.playerCard}>
                 {/* Player Name */}
@@ -94,7 +95,7 @@ const Players = () => {
                 <Text style={styles.emptyStateSubtext}>أضف لاعبين للبدء</Text>
               </View>
             )}
-          </View>
+          </ScrollView>
 
           {/* Action Buttons */}
           <View style={styles.actionButtons}>
@@ -106,12 +107,13 @@ const Players = () => {
             />
 
             <PlayButton
-              text={`{التالي (متبقي ${
-                players.length - 3 >= 0 ? 0 : players.length - 3
-              }}`}
+              text={`(متبقي ${
+                players.length - 3 >= 0 ? 0 : Math.abs(players.length - 3)
+              })`}
               size="small"
               style={styles.nextButtonStyle}
               onPress={handleStartGame}
+              disabled={true}
             />
           </View>
         </View>
@@ -159,24 +161,24 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: I18nManager.isRTL ? "row-reverse" : "row",
     width: "100%",
-    marginBottom: 30,
     alignItems: "center",
     gap: 12,
   },
   playerInput: {
     flex: 1,
+    direction: "ltr",
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     borderRadius: 12,
     paddingHorizontal: 16,
     paddingVertical: 14,
     fontSize: 16,
     color: "#000",
-    textAlign: I18nManager.isRTL ? "right" : "left",
+    textAlign: "right",
     writingDirection: I18nManager.isRTL ? "rtl" : "ltr",
   },
   playersCount: {
     alignSelf: "flex-start",
-    marginBottom: 40,
+    marginBottom: 20,
   },
   playersCountText: {
     fontSize: 18,
@@ -199,6 +201,7 @@ const styles = StyleSheet.create({
   playersListContainer: {
     width: "100%",
     marginBottom: 30,
+    height: 220,
   },
   playerCard: {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
@@ -217,32 +220,6 @@ const styles = StyleSheet.create({
     elevation: 3,
     borderWidth: 1,
     borderColor: "rgba(126, 68, 68, 0.2)",
-  },
-  playerAvatar: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: "#FF6B9D",
-    justifyContent: "center",
-    alignItems: "center",
-    marginRight: I18nManager.isRTL ? 0 : 12,
-    marginLeft: I18nManager.isRTL ? 12 : 0,
-    shadowColor: "#FF6B9D",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 4,
-  },
-  playerAvatarText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#FFFFFF",
-    textShadowColor: "rgba(0, 0, 0, 0.3)",
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
   },
   playerInfo: {
     flex: 1,
@@ -269,14 +246,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF4757",
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#FF4757",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 4,
   },
   deleteButtonText: {
     fontSize: 18,
