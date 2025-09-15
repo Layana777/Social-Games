@@ -7,6 +7,8 @@ export const BaraAlSalfaProvider = ({ children }) => {
   const [currntPage, setCurrntPage] = useState("landing");
   const [selectedTopic, setSelectedTopic] = useState("");
   const [outPlayer, setOutPlayer] = useState(0);
+  const [showWordGame, setShowWordGame] = useState([]);
+  const [showCategory, setShowCategory] = useState("");
 
   const value = {
     players,
@@ -17,6 +19,10 @@ export const BaraAlSalfaProvider = ({ children }) => {
     setSelectedTopic,
     outPlayer,
     setOutPlayer,
+    showWordGame,
+    setShowWordGame,
+    showCategory,
+    setShowCategory,
   };
 
   return (

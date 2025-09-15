@@ -1,17 +1,12 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  I18nManager,
-} from "react-native";
+import { Text, View, StyleSheet, I18nManager } from "react-native";
 import { useBaraAlSalfa } from "../context";
 import PlayButton from "../components/PlayButton";
 
 const Landing = () => {
-  const { setCurrntPage, currntPage, startGame } = useBaraAlSalfa();
+  const { setCurrntPage } = useBaraAlSalfa();
 
-    const handleStartGame = () => {
-       setCurrntPage("Players");
+  const handleStartGame = () => {
+    setCurrntPage("Players");
   };
 
   return (

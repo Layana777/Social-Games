@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Read(//c/Users/layan/OneDrive/الصور/لقطات الشاشة/**)"
+      "Read(//c/Users/layan/OneDrive/الصور/لقطات الشاشة/**)",
+      "Bash(npm start)",
+      "Bash(npx expo start:*)",
+      "Bash(npx expo install:*)"
     ]
   },
   "outputStyle": "Learning"

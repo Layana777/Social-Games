@@ -32,6 +32,7 @@ const Players = () => {
     setName("");
   };
 
+  //موجود في اللوجيك
   const handleDeletePlayer = (idx) => {
     const newPlayers = deletePlayer(players, idx);
     setPlayers(newPlayers);
@@ -114,6 +115,15 @@ const Players = () => {
               style={styles.nextButtonStyle}
               onPress={handleStartGame}
               disabled={true}
+            />
+          </View>
+
+          <View>
+            <PlayButton
+              text="التالي"
+              size="small"
+              style={styles}
+              onPress={handleStartGame}
             />
           </View>
         </View>

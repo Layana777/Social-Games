@@ -10,24 +10,33 @@ import PlayButton from "../components/PlayButton";
 import { useBaraAlSalfa } from "../context";
 import { Data } from "../assets/Data/Data";
 import { randomPlayer, randomTopic } from "../logic";
+import Game from "./game";
 
 const FindTopic = () => {
-  const { selectedTopic, setSelectedTopic, setOutPlayer, players } =
-    useBaraAlSalfa();
+  const {
+    setCurrntPage,
+    setSelectedTopic,
+    setOutPlayer,
+    players,
+    setShowCategory,
+  } = useBaraAlSalfa();
 
   //  const handleStartGame = () => {
   //    setCurrntPage("Players");
   //  };
 
-  const handleCategorySelect = (category) => {
+    const handleCategorySelect = (category) => {
     const word = randomTopic(category.words);
     const newRandomPlayers = randomPlayer(players);
 
     setSelectedTopic(word);
     setOutPlayer(newRandomPlayers);
+    setShowCategory(category.name);
 
     // Logic will be added later
     console.log("Selected category:", newRandomPlayers);
+
+    setCurrntPage("Game");
   };
 
   const handleBackPress = () => {
@@ -47,10 +56,10 @@ const FindTopic = () => {
         <View style={styles.categoriesCard}>
           {/* Categories Grid */}
           <View style={styles.categoriesGrid}>
-            {Object.entries(Data).map(([key, category]) => (
+            {Object.values(Data).map((category, idx) => (
               <>
                 <TouchableOpacity
-                  key={category.id}
+                  key={category.idx}
                   style={styles.categoryCard}
                   onPress={() => handleCategorySelect(category)}
                 >
