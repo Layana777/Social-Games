@@ -59,7 +59,7 @@ const FindTopic = () => {
             {Object.values(Data).map((category, idx) => (
               <>
                 <TouchableOpacity
-                  key={category.idx}
+                  key={idx}
                   style={styles.categoryCard}
                   onPress={() => handleCategorySelect(category)}
                 >

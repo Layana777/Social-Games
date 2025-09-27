@@ -101,7 +101,8 @@ const Game = () => {
                 style={styles.actionButton}
               >
                 <Text style={styles.buttonText}>
-                  {players.length - 1 <= currentUserIndex
+                  {/* حطيناه -1 لان الاندينك تبدا 0 */}
+                  {players.length <= currentUserIndex + 1
                     ? "التالي"
                     : "اللاعب التالي"}
                 </Text>
